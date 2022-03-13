@@ -11,7 +11,11 @@ class ProductController extends Controller
         $products = [
             "prod1", "prod2", "prod3", "prod4", "prod5"
         ];
-        return view('products.index', compact('products'));
+        $proveedores = [
+            "a",
+            "b", "c", "d"
+        ];
+        return view('products.index', compact('products', 'proveedores'));
         //return ('controller message');
     }
 }
