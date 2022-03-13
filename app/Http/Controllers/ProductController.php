@@ -8,10 +8,10 @@ class ProductController extends Controller
 {
     public function product()
     {
-        $products=[
-            "prod1","prod2","prod3","prod4","prod5"
+        $products = [
+            "prod1", "prod2", "prod3", "prod4", "prod5"
         ];
-        return view('products.index')->with('products',$products);
+        return view('products.index', compact('products'));
         //return ('controller message');
     }
 }
