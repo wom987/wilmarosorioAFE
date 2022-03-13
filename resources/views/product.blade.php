@@ -1,1 +1,1 @@
-<h1>Desde closure</h1>
+<h1>Desde controlador</h1>
