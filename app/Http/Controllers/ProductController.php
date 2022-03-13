@@ -8,7 +8,10 @@ class ProductController extends Controller
 {
     public function product()
     {
-        //return view('product');
-        return ('controller message');
+        $products=[
+            "prod1","prod2","prod3","prod4","prod5"
+        ];
+        return view('products.index')->with('products',$products);
+        //return ('controller message');
     }
 }
