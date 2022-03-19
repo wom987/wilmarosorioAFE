@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('css')
+@endsection
 @section('content')
 <h1>Productos</h1>
 
@@ -10,4 +12,6 @@
 @foreach ($proveedores as $pr)
     <ul>{{ $pr }}</ul>
 @endforeach
+@endsection
+@section('js')
 @endsection
