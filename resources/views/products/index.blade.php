@@ -2,7 +2,7 @@
 @section('css')
 @endsection
 @section('content')
-    <h1>Productos</h1>
+    <h1 class="text-center mb-5">Productos</h1>
     <h2 class="text-center mb-5">Administracion de productos</h2>
     <div class="col-md-10 mx-auto bg-white p-3">
         <table class="table">
