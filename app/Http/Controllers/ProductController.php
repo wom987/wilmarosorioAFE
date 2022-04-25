@@ -55,14 +55,22 @@ class ProductController extends Controller
         $image_uri = $request['image']->store('products_pics', 'public');
         $img = Image::make(public_path("storage/{$image_uri}"))->fit(1000, 500);
         $img->save();
-        $product = new Product();
-        $product->product_name = $data["product_name"];
-        $product->unit_price = $data["unit_price"];
-        $product->barcode = $data["barcode"];
-        $product->supplier_id = $data["supplier"];
-        $product->user_id = Auth::user()->id;
-        $product->image = $image_uri;
-        if ($product->save()) {
+        //*commented to save product using relationship
+        //$product = new Product();
+        //$product->product_name = $data["product_name"];
+        //$product->unit_price = $data["unit_price"];
+        //$product->barcode = $data["barcode"];
+        //$product->supplier_id = $data["supplier"];
+        //$product->user_id = Auth::user()->id;
+        //$product->image = $image_uri;
+        $product = auth()->user()->products()->create([
+            "product_name" => $data["product_name"],
+            "unit_price" => $data["unit_price"],
+            "barcode" => $data["barcode"],
+            "supplier_id" => $data["supplier"],
+            "image" => $image_uri,
+        ]);
+        if ($product) {
             return redirect()->action([ProductController::class, 'index']);
         } else {
             dd($product);

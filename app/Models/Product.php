@@ -13,10 +13,16 @@ class Product extends Model
         'product_name',
         'unit_price',
         'barcode',
-        'supplier_id'
+        'supplier_id',
+        'image'
     ];
     public function supplier()
     {
+        //supplier relationship added 
         return $this->belongsTo(Supplier::class);
+        //! fails it we use has one
+        //* it fails bc it is searching the product id at suppliers table 
+        //* the relationship cannot be done properly
+        //return $this->hasOne(Supplier::class);
     }
 }

@@ -32,10 +32,13 @@
                     <td>${{ $pr->unit_price }}</td>
                     <td>{{ $pr->barcode }}</td>
                     <td>{{ $pr->supplier->supplier_name }}</td>
-                    <td><a href="#"
-                            class="btn btn-warning">Editar</a>
+                    <td>
                         <a href=""
                             class="btn btn-danger">Eliminar</a>
+                        <a href="#"
+                            class="btn btn-warning">Editar</a>
+                        <a href="#"
+                            class="btn btn-primary">Mostrar</a>
                     </td>
                 </tr>
             @endforeach
