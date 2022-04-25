@@ -14,9 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ['PS4', 'PS5'];
-        $proveedores = ['A', 'B', 'C', 'D'];
-        return view('products.index',compact('products','proveedores'));
+        $products = Product::all();
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -26,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
