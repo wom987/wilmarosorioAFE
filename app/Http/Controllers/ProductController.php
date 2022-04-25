@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductController extends Controller
 {
@@ -51,6 +52,8 @@ class ProductController extends Controller
             'image' => 'required|image',
         ]);
         $image_uri = $request['image']->store('products_pics', 'public');
+        $img = Image::make(public_path("storage/{$image_uri}"))->fit(1000, 500);
+        $img->save();
         $product = new Product();
         $product->product_name = $data["product_name"];
         $product->unit_price = $data["unit_price"];
