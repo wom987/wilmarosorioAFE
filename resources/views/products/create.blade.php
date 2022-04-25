@@ -7,7 +7,8 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <form action="{{ url('/products') }}"
-                        method="post">
+                        method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <label for="product_name">Titulo Producto</label>
                         <input type="text"

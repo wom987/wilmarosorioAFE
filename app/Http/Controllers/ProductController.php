@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -45,11 +46,23 @@ class ProductController extends Controller
         $data = request()->validate([
             'product_name' => 'required|min:5|max:50',
             'unit_price' => 'required',
-            'barcode' => 'required',
+            'barcode' => 'required|min:5|max:8',
             'supplier' => 'required',
-            'image' => 'required',
+            'image' => 'required|image',
         ]);
-        dd($data['product_name']);
+        $image_uri = $request['image']->store('products_pics', 'public');
+        $product = new Product();
+        $product->product_name = $data["product_name"];
+        $product->unit_price = $data["unit_price"];
+        $product->barcode = $data["barcode"];
+        $product->supplier_id = $data["supplier"];
+        $product->user_id = Auth::user()->id;
+        $product->image = $image_uri;
+        if ($product->save()) {
+            return redirect()->action([ProductController::class, 'index']);
+        } else {
+            dd($product);
+        }
     }
 
     /**
