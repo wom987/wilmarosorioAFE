@@ -15,15 +15,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        
+
         User::insert([
             'name' => 'Wilmar',
             'lastname' => 'Osorio',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => Hash::make('admin123'), // password
-       ]);
-            
-        
+        ]);
+        User::factory(5)->create();
     }
 }

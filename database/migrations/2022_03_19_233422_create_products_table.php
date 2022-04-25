@@ -18,7 +18,10 @@ class CreateProductsTable extends Migration
             $table->string("product_name");
             $table->string("description");
             $table->float("unit_price");
+            $table->integer('barcode');
+            $table->string('image')->nullable();
             $table->foreignId("supplier_id")->references("id")->on("suppliers");
+            $table->foreignId("user_id")->references("id")->on("users");
             $table->timestamps();
         });
     }

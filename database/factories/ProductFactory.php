@@ -14,10 +14,12 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'product_name' => $this->faker->text($maxNbChars = 10), 
-            'description' => $this->faker->text(), 
+            'product_name' => $this->faker->text($maxNbChars = 8),
+            'description' => $this->faker->text(),
             'unit_price' => $this->faker->numerify("###.##"),
+            'barcode' => $this->faker->numerify("########"),
             'supplier_id' => $this->faker->numberBetween(1, 20),
+            'user_id' => $this->faker->numberBetween(1, 6),
         ];
     }
 }
