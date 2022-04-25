@@ -18,6 +18,9 @@
             <tr>
                 <th scole="col">Codigo</th>
                 <th scole="col">Nombre</th>
+                <th scole="col">Precio</th>
+                <th scole="col">Codigo de barra</th>
+                <th scole="col">Proveedor</th>
                 <th scole="col">Acciones</th>
             </tr>
         </thead>
@@ -26,6 +29,9 @@
                 <tr>
                     <td>{{ $pr->id }}</td>
                     <td>{{ $pr->product_name }}</td>
+                    <td>${{ $pr->unit_price }}</td>
+                    <td>{{ $pr->barcode }}</td>
+                    <td>{{ $pr->supplier->supplier_name }}</td>
                     <td><a href="#"
                             class="btn btn-warning">Editar</a>
                         <a href=""
