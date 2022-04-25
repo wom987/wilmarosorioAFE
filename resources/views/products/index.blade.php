@@ -38,7 +38,7 @@
                         <a href="#"
                             class="btn btn-warning">Editar</a>
                         <a href="#"
-                            class="btn btn-primary">Mostrar</a>
+                            class="btn btn-success">Mostrar</a>
                     </td>
                 </tr>
             @endforeach
