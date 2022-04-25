@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $suppliers = Supplier::all()->pluck('supplier_name', 'id');
+        return view('products.create', compact('suppliers'));
     }
 
     /**
