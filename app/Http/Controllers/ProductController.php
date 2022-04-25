@@ -21,6 +21,7 @@ class ProductController extends Controller
     }
     public function index()
     {
+        // get products created based on the user id and get the supplier name as well
         $products = Product::where('user_id', auth()->user()->id)->with('supplier')->get();
         return view('products.index', compact('products'));
     }

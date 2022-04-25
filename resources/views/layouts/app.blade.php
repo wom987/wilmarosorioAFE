@@ -10,7 +10,7 @@
     <meta name="csrf-token"
         content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Clase 7</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"
