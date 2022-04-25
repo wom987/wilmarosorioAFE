@@ -13,6 +13,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $products = Product::where('user_id', auth()->user()->id)->with('supplier')->get();
@@ -38,7 +42,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'product_name' => 'required|min:5|max:50',
+            'unit_price' => 'required',
+            'barcode' => 'required',
+            'supplier' => 'required',
+            'image' => 'required',
+        ]);
+        dd($data['product_name']);
     }
 
     /**

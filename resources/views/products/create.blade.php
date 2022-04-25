@@ -8,6 +8,7 @@
                 <div class="col-md-6">
                     <form action="{{ url('/products') }}"
                         method="post">
+                        @csrf
                         <label for="product_name">Titulo Producto</label>
                         <input type="text"
                             class="form-control @error('product_name') is-invalid @enderror"
@@ -53,6 +54,18 @@
                             @endforeach
                         </select>
                         @error('supplier')
+                            <span class="invalid-feedback d-block"
+                                role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                        <label class="mt-3"
+                            for="image">Selecciona una imagen para el producto</label>
+                        <input type="file"
+                            name="image"
+                            accept="image/png, image/gif, image/jpeg"
+                            class="form-control"
+                            placeholder="Selecionar imagen"
+                            id="image">
+                        @error('image')
                             <span class="invalid-feedback d-block"
                                 role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
