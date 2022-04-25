@@ -18,7 +18,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->text(),
             'unit_price' => $this->faker->numerify("###.##"),
             'barcode' => $this->faker->numerify("########"),
-            'supplier_id' => $this->faker->numberBetween(1, 20),
+            'supplier_id' => $this->faker->numberBetween(1, 7),
             'user_id' => $this->faker->numberBetween(1, 6),
         ];
     }
