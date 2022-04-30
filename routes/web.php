@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->user()) {
+        return redirect()->action([ProductController::class, 'index']);
+    } else {
+        return view('auth.login');
+    }
 });
 Route::get('/products', "ProductController@index");
 Route::get('/products/create', "ProductController@create");

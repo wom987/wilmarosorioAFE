@@ -25,4 +25,8 @@ class Product extends Model
         //* the relationship cannot be done properly
         //return $this->hasOne(Supplier::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
