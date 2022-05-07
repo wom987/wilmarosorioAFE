@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 Route::get('/products', "ProductController@index");
 Route::get('/products/create', "ProductController@create");
+Route::get('/products/{product}', "ProductController@show");
 Route::post('/products', "ProductController@store");
 
 Auth::routes();

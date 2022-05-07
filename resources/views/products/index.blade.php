@@ -37,7 +37,7 @@
                             class="btn btn-danger">Eliminar</a>
                         <a href="#"
                             class="btn btn-warning">Editar</a>
-                        <a href="#"
+                        <a href="{{ url('/products/' . $pr->id) }}"
                             class="btn btn-success">Mostrar</a>
                     </td>
                 </tr>
